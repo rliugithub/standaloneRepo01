@@ -1,0 +1,580 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "testReuseSchema",
+    "x-lastModified": "striped"
+  },
+  "paths": {
+    "/book1": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/GetResponse"
+            },
+            "examples": {
+              "application/json": {
+                "id": 11,
+                "details": {
+                  "name": "The Arabian Noghts",
+                  "Author": "Sir Richard",
+                  "publisher": "Wiley Press",
+                  "edition": 2017
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/PostResponse"
+            },
+            "examples": {
+              "application/json": {
+                "id": 11,
+                "details": {
+                  "name": "The Arabian Noghts",
+                  "Author": "Sir Richard",
+                  "publisher": "Wiley Press",
+                  "edition": 2017
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PostRequest"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/PutResponse"
+            },
+            "examples": {
+              "application/json": {
+                "id": 11,
+                "details": {
+                  "name": "The Arabian Noghts",
+                  "Author": "Sir Richard",
+                  "publisher": "Wiley Press",
+                  "edition": 2017
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PutRequest"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/DeleteResponse"
+            },
+            "examples": {
+              "application/json": {
+                "id": 11,
+                "details": {
+                  "name": "The Arabian Noghts",
+                  "Author": "Sir Richard",
+                  "publisher": "Wiley Press",
+                  "edition": 2017
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/book2": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/getResponseBook2"
+            }
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/postResponseBook2"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/postRequestBook2"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/putResponseBook2"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/putRequestBook2"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/deleteResponseBook2"
+            }
+          }
+        },
+        "parameters": []
+      }
+    }
+  },
+  "definitions": {
+    "GetResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "PostRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "PostResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "PutRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "PutResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "DeleteResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "getResponseBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "postRequestBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "postResponseBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "putRequestBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "putResponseBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    },
+    "deleteResponseBook2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 11
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "default": "The Arabian Noghts"
+            },
+            "Author": {
+              "type": "string",
+              "default": "Sir Richard"
+            },
+            "publisher": {
+              "type": "string",
+              "default": "Wiley Press"
+            },
+            "edition": {
+              "type": "integer",
+              "default": 2017
+            }
+          }
+        }
+      }
+    }
+  }
+}
