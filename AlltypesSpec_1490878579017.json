@@ -1,0 +1,155 @@
+{
+  "definitions": {
+    "AllTypes": {
+      "properties": {
+        "DOB": {
+          "default": "2012-11-11",
+          "format": "date",
+          "type": "string"
+        },
+        "age": {
+          "default": 23,
+          "type": "integer"
+        },
+        "email": {
+          "default": "hello@test.com",
+          "format": "email",
+          "type": "string"
+        },
+        "name": {
+          "default": "sam",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GiveNewSchemaNameHere": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "department": {
+          "default": "eng",
+          "type": "string"
+        },
+        "location": {
+          "default": "PA",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "info": {
+    "title": "AlltypesSpec",
+    "version": "2.0.0",
+    "x-lastModified": "Mar 14, 2017 18:35PM PST"
+  },
+  "paths": {
+    "/res3": {
+      "delete": {
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        }
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "",
+            "in": "query",
+            "name": "qqq",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "default": "aa",
+            "description": "",
+            "format": "",
+            "in": "formData",
+            "name": "form1",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "examples": {
+              "application/json": {
+                "department": "eng",
+                "location": "PA"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            }
+          }
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "123",
+            "description": "",
+            "format": "",
+            "in": "query",
+            "name": "newpro",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AllTypes"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            }
+          }
+        }
+      }
+    }
+  },
+  "swagger": "2.0"
+}
