@@ -73,7 +73,7 @@
           "type": "number"
         },
         "product_id": {
-          "description": "Unique identifier representing a specific product for a given latitude \u0026 longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles",
+          "description": "Unique identifier representing a specific product for a given latitude & longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles",
           "type": "string"
         },
         "surge_multiplier": {
@@ -102,7 +102,7 @@
           "type": "string"
         },
         "product_id": {
-          "description": "Unique identifier representing a specific product for a given latitude \u0026 longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles.",
+          "description": "Unique identifier representing a specific product for a given latitude & longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles.",
           "type": "string"
         }
       },
@@ -138,12 +138,13 @@
   "info": {
     "description": "Move your app forward with the Uber API",
     "title": "Uber API",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "x-lastModified": "Aug 18, 2017 01:21AM PST"
   },
   "paths": {
     "/estimates/price": {
       "get": {
-        "description": "The Price Estimates endpoint returns an estimated price range\nfor each product offered at a given location. The price estimate is\nprovided as a formatted string with the full price range and the localized\ncurrency symbol.\u003cbr\u003e\u003cbr\u003eThe response also includes low and high estimates,\nand the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for\nsituations requiring currency conversion. When surge is active for a particular\nproduct, its surge_multiplier will be greater than 1, but the price estimate\nalready factors in this multiplier.\n",
+        "description": "The Price Estimates endpoint returns an estimated price range\nfor each product offered at a given location. The price estimate is\nprovided as a formatted string with the full price range and the localized\ncurrency symbol.<br><br>The response also includes low and high estimates,\nand the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for\nsituations requiring currency conversion. When surge is active for a particular\nproduct, its surge_multiplier will be greater than 1, but the price estimate\nalready factors in this multiplier.\n",
         "parameters": [
           {
             "description": "Latitude component of start location.",
@@ -198,7 +199,8 @@
         "summary": "Price Estimates",
         "tags": [
           "Estimates"
-        ]
+        ],
+        "operationId": "getEstimatesPrice"
       }
     },
     "/estimates/time": {
@@ -229,7 +231,7 @@
             "type": "string"
           },
           {
-            "description": "Unique identifier representing a specific product for a given latitude \u0026 longitude.",
+            "description": "Unique identifier representing a specific product for a given latitude & longitude.",
             "in": "query",
             "name": "product_id",
             "type": "string"
@@ -255,12 +257,13 @@
         "summary": "Time Estimates",
         "tags": [
           "Estimates"
-        ]
+        ],
+        "operationId": "getEstimatesTime"
       }
     },
     "/history": {
       "get": {
-        "description": "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.\u003cbr\u003e\u003cbr\u003eThe history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.",
+        "description": "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.<br><br>The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.",
         "parameters": [
           {
             "description": "Offset the list of returned results by this amount. Default is zero.",
@@ -294,7 +297,8 @@
         "summary": "User Activity",
         "tags": [
           "User"
-        ]
+        ],
+        "operationId": "getHistory"
       }
     },
     "/me": {
@@ -317,7 +321,8 @@
         "summary": "User Profile",
         "tags": [
           "User"
-        ]
+        ],
+        "operationId": "getMe"
       }
     },
     "/products": {
@@ -361,7 +366,8 @@
         "summary": "Product Types",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "getProducts"
       }
     }
   },
