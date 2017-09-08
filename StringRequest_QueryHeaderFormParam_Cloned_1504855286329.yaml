@@ -1,0 +1,67 @@
+info:
+  description: book API
+  title: StringRequest_QueryHeaderFormParam_Cloned
+  version: "1.0"
+  x-lastModified: Sep 08, 2017 00:21AM PST
+paths:
+  /book/name:
+    delete:
+      operationId: deleteBookName
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    get:
+      operationId: getBookName
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: postBookName
+      parameters:
+      - description: query param desc 5
+        in: query
+        items:
+          default: 55555
+          format: int64
+          type: integer
+        name: queryParam5
+        required: false
+        type: array
+      - description: ""
+        in: formData
+        items:
+          default: 1.1
+          format: float
+          type: number
+        name: form_float
+        required: false
+        type: array
+      - default: "1"
+        description: add_form_desc
+        format: byte
+        in: formData
+        name: form_byte
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    put:
+      operationId: putBookName
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+swagger: "2.0"
