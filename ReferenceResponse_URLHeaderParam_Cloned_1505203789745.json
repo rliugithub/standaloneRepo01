@@ -1,0 +1,149 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "ReferenceResponse_URLHeaderParam_Cloned",
+    "x-lastModified": "Sep 12, 2017 01:09AM PST",
+    "description": "Add API Description"
+  },
+  "paths": {
+    "/animals/pet": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "getAnimalsPet",
+        "description": "Add GET Method Description",
+        "summary": "Add GET Method Description"
+      },
+      "post": {
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/Response_Schema_Name"
+            }
+          }
+        },
+        "parameters": [],
+        "operationId": "postAnimalsPet"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "putAnimalsPet"
+      },
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Header_Param_Name",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "password"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "desc body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReferenceSchema"
+              }
+            }
+          }
+        ],
+        "operationId": "patchAnimalsPet",
+        "consumes": [
+          "application/xml"
+        ]
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "deleteAnimalsPet"
+      }
+    }
+  },
+  "definitions": {
+    "Response_Schema_Name": {
+      "type": "object",
+      "title": "JSONSchema_Object",
+      "description": "JSONSchema_Object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 20,
+          "minLength": 1
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "default": 1
+        }
+      }
+    },
+    "ReferenceSchema": {
+      "type": "object",
+      "title": "JSONSchema_Object",
+      "description": "JSONSchema_Object",
+      "required": [
+        "name",
+        "id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 20,
+          "minLength": 1
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "default": 1
+        }
+      }
+    }
+  }
+}
