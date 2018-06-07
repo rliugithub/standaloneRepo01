@@ -139,7 +139,7 @@
     "description": "Move your app forward with the Uber API",
     "title": "Uber API",
     "version": "1.0.0",
-    "x-lastModified": "Jun 07, 2018 08:13AM PST"
+    "x-lastModified": "Jun 07, 2018 10:16AM PST"
   },
   "paths": {
     "/estimates/price": {
