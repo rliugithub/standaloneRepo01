@@ -4,7 +4,7 @@
     "title": "Uber API",
     "description": "Move your app forward with the Uber API",
     "version": "1.0.0",
-    "x-lastModified": "2019-10-24T11:39:07.000Z"
+    "x-lastModified": "2019-10-29T07:34:39.000Z"
   },
   "host": "api.uber.com",
   "schemes": [
