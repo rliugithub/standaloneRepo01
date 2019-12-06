@@ -1,54 +1,13 @@
 {
-  "definitions": {
-    "AllTypes": {
-      "properties": {
-        "DOB": {
-          "default": "2012-11-11",
-          "format": "date",
-          "type": "string"
-        },
-        "age": {
-          "default": 23,
-          "type": "integer"
-        },
-        "email": {
-          "default": "hello@test.com",
-          "format": "email",
-          "type": "string"
-        },
-        "name": {
-          "default": "sam",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "GiveNewSchemaNameHere": {
-      "properties": {
-        "count": {
-          "type": "integer"
-        },
-        "department": {
-          "default": "eng",
-          "type": "string"
-        },
-        "location": {
-          "default": "PA",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
+  "swagger": "2.0",
   "info": {
-    "title": "AlltypesSpec",
-    "version": "2.0.0",
-    "x-lastModified": "Mar 14, 2017 18:35PM PST"
+    "version": "1.2",
+    "title": "fff",
+    "x-lastModified": "06 December 2019 4:59:15 pm (India Standard Time)"
   },
   "paths": {
-    "/res3": {
-      "delete": {
-        "parameters": [],
+    "/kk": {
+      "get": {
         "produces": [
           "application/json"
         ],
@@ -56,100 +15,58 @@
           "200": {
             "description": "Success response"
           }
-        }
-      },
-      "get": {
-        "parameters": [
-          {
-            "description": "",
-            "format": "",
-            "in": "query",
-            "name": "qqq",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success response",
-            "schema": {
-              "$ref": "#/definitions/GiveNewSchemaNameHere"
-            }
-          }
-        }
+        },
+        "parameters": [],
+        "operationId": "getKk"
       },
       "post": {
-        "consumes": [
-          "multipart/form-data"
-        ],
-        "parameters": [
-          {
-            "default": "aa",
-            "description": "",
-            "format": "",
-            "in": "formData",
-            "name": "form1",
-            "required": false,
-            "type": "string"
-          }
-        ],
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "Success response",
-            "examples": {
-              "application/json": {
-                "department": "eng",
-                "location": "PA"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/GiveNewSchemaNameHere"
-            }
+            "description": "Success response"
           }
-        }
+        },
+        "parameters": [],
+        "operationId": "postKk"
       },
       "put": {
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "default": "123",
-            "description": "",
-            "format": "",
-            "in": "query",
-            "name": "newpro",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "",
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AllTypes"
-            }
-          }
-        ],
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "Success response",
-            "schema": {
-              "$ref": "#/definitions/GiveNewSchemaNameHere"
-            }
+            "description": "Success response"
           }
-        }
+        },
+        "parameters": [],
+        "operationId": "putKk"
+      },
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "patchKk"
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "deleteKk"
       }
     }
-  },
-  "swagger": "2.0"
+  }
 }
