@@ -1,0 +1,80 @@
+|
+  definitions:
+    GiveNewSchemaNameHere:
+      properties:
+        PUT:
+          default: Response
+          type: string
+      type: object
+  info:
+    title: APISpecWithCorrectFormat
+    version: '1.1'
+    x-lastModified: 'Oct 04, 2017 02:19AM PST'
+  paths:
+    /pet:
+      delete:
+        operationId: deletePet
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+      get:
+        operationId: getPet
+        parameters:
+          - in: query
+            name: q1
+            type: string
+          - default: false
+            in: header
+            name: h1
+            type: boolean
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+      patch:
+        operationId: patchPet
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+      post:
+        consumes:
+          - application/json
+        operationId: postPet
+        parameters:
+          - in: query
+            name: q1
+            type: string
+          - default: '3'
+            format: binary
+            in: header
+            name: h1
+            type: string
+          - in: body
+            name: body
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+      put:
+        operationId: putPet
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+          '203':
+            description: info
+            examples:
+              application/json:
+                PUT: Response
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+  swagger: '2.0'
