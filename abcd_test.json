@@ -1,0 +1,9 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2",
+    "title": "API SPec New",
+    "x-lastModified": "Feb 21, 2017 01:29AM PST"
+  },
+  "paths": {}
+}
