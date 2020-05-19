@@ -1,0 +1,162 @@
+|
+  swagger: '2.0'
+  info:
+    version: '1'
+    title: apispec
+    x-lastModified: 'Oct 04, 2017 02:38AM PST'
+    description: This is APISpec
+  paths:
+    /pei:
+      get:
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+          '302':
+            description: Found
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+            examples:
+              application/json:
+                POST: Response
+        parameters:
+          - name: q1
+            in: query
+            description: ''
+            required: false
+            type: boolean
+            format: ''
+            default: false
+          - name: h1
+            in: header
+            description: ''
+            required: false
+            type: integer
+            format: int64
+            default: 11
+        operationId: getPei
+        summary: This is APISpec
+        description: This is APISpec
+      post:
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+          '304':
+            description: Not Modified
+            schema:
+              $ref: '#/definitions/POSTSchema'
+        parameters:
+          - name: q1
+            in: query
+            description: ''
+            required: false
+            type: string
+            format: password
+            default: 1234567890-
+          - name: h1
+            in: header
+            description: ''
+            required: false
+            type: number
+            format: float
+            default: 1.1
+          - name: body
+            in: body
+            description: POST Body Param
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+        operationId: postPei
+        summary: This is APISpec
+        description: This is APISpec
+        consumes:
+          - application/json
+      put:
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+          '404':
+            description: Not found
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+            examples:
+              application/json:
+                PUT: Response
+        parameters:
+          - name: q1
+            in: query
+            description: ''
+            required: false
+            type: boolean
+            format: ''
+          - name: h1
+            in: header
+            description: ''
+            required: false
+            type: integer
+            format: int32
+            default: 24
+          - name: f1
+            in: formData
+            description: ''
+            required: false
+            type: string
+            format: byte
+            default: '8'
+        operationId: putPei
+        consumes:
+          - application/x-www-form-urlencoded
+      patch:
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: Success response
+          '204':
+            description: No Content
+            schema:
+              $ref: '#/definitions/PATCHSchema'
+        parameters:
+          - name: f1
+            in: formData
+            description: ''
+            required: false
+            type: file
+            format: text
+            default: fff
+        operationId: patchPei
+        consumes:
+          - multipart/form-data
+      delete:
+        produces:
+          - application/json
+          - application/xml
+        responses:
+          '200':
+            description: Success response
+          '402':
+            description: Payement
+            schema:
+              $ref: '#/definitions/GiveNewSchemaNameHere'
+            examples:
+              application/json:
+                Delete: Response
+        parameters: []
+        operationId: deletePei
+        summary: This is APISpec
+        description: This is APISpec
+  definitions:
+    GiveNewSchemaNameHere:
+      type: object
+      properties:
+        Delete:
+          type: string
+          default: Response
+    POSTSchema:
+      POST: Schema
+    PATCHSchema:
+      PATCH: Response
