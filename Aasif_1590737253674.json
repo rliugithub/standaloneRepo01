@@ -1,0 +1,66 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Aasif",
+    "x-lastModified": "29 May 2020 12:55:27 pm (India Standard Time)"
+  },
+  "paths": {
+    "/pet": {
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "dsadsad",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            }
+          }
+        ],
+        "operationId": "patchPet",
+        "consumes": [],
+        "tags": [
+          "Aasif"
+        ]
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "putPet"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "getPet"
+      }
+    }
+  },
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "name": "Aasif"
+    }
+  }
+}
