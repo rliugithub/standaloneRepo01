@@ -1,0 +1,41 @@
+swagger: '2.0'
+info:
+  version: '1.1'
+  title: Created_stoppedmock
+  x-lastModified: '2020-06-29T08:53:46.000Z'
+paths:
+  /sample:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: getSample
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: string
+      parameters: []
+      operationId: postSample
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: putSample
+    delete:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: deleteSample
