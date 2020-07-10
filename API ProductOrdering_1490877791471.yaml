@@ -1,5 +1,5 @@
 consumes:
-- application/json
+  - application/json
 definitions:
   Hub:
     properties:
@@ -36,15 +36,15 @@ definitions:
         $ref: '#/definitions/ProductOffering'
       state:
         enum:
-        - Acknowledged
-        - InProgress
-        - Cancelled
-        - Completed
-        - Rejected
-        - Pending
-        - Held
-        - Failed
-        - Partial
+          - Acknowledged
+          - InProgress
+          - Cancelled
+          - Completed
+          - Rejected
+          - Pending
+          - Held
+          - Failed
+          - Partial
         type: string
     type: object
   Product:
@@ -132,15 +132,15 @@ definitions:
         type: string
       state:
         enum:
-        - Acknowledged
-        - InProgress
-        - Cancelled
-        - Completed
-        - Rejected
-        - Pending
-        - Held
-        - Failed
-        - Partial
+          - Acknowledged
+          - InProgress
+          - Cancelled
+          - Completed
+          - Rejected
+          - Pending
+          - Held
+          - Failed
+          - Partial
         type: string
     type: object
   ProductOrderIn:
@@ -180,15 +180,15 @@ definitions:
         type: string
       state:
         enum:
-        - Acknowledged
-        - InProgress
-        - Cancelled
-        - Completed
-        - Rejected
-        - Pending
-        - Held
-        - Failed
-        - Partial
+          - Acknowledged
+          - InProgress
+          - Cancelled
+          - Completed
+          - Rejected
+          - Pending
+          - Held
+          - Failed
+          - Partial
         type: string
     type: object
   ProductRelationship:
@@ -197,10 +197,10 @@ definitions:
         $ref: '#/definitions/Product'
       type:
         enum:
-        - reliesOn
-        - bundled
-        - targets
-        - isTargeted
+          - reliesOn
+          - bundled
+          - targets
+          - isTargeted
         type: string
     type: object
   Reference:
@@ -216,17 +216,17 @@ definitions:
     type: object
 host: env-0693795.jelastic.servint.net
 info:
-  description: ""
+  description: ''
   title: API ProductOrdering
-  version: "2.0"
+  version: '2.0'
 paths:
   /hub:
     get:
       deprecated: false
-      description: ""
+      description: ''
       operationId: hubFind
       responses:
-        "200":
+        '200':
           description: List of Hub
           schema:
             items:
@@ -234,71 +234,71 @@ paths:
             type: array
       summary: hubFind
       tags:
-      - hub
+        - hub
     post:
       deprecated: false
-      description: ""
+      description: ''
       operationId: hubCreate
       parameters:
-      - in: body
-        name: hub
-        required: true
-        schema:
-          $ref: '#/definitions/Hub'
+        - in: body
+          name: hub
+          required: true
+          schema:
+            $ref: '#/definitions/Hub'
       responses:
-        "201":
+        '201':
           description: Hub
           schema:
             $ref: '#/definitions/Hub'
       summary: hubCreate
       tags:
-      - hub
-  /hub/{hubId}:
+        - hub
+  '/hub/{hubId}':
     delete:
       deprecated: false
-      description: ""
+      description: ''
       operationId: hubDelete
       parameters:
-      - in: path
-        name: hubId
-        required: true
-        type: string
+        - in: path
+          name: hubId
+          required: true
+          type: string
       responses:
-        "204":
+        '204':
           description: Success
       summary: hubDelete
       tags:
-      - hub
+        - hub
     get:
       deprecated: false
-      description: ""
+      description: ''
       operationId: hubGet
       parameters:
-      - in: path
-        name: hubId
-        required: true
-        type: string
+        - in: path
+          name: hubId
+          required: true
+          type: string
       responses:
-        "200":
+        '200':
           description: Hub
           schema:
             $ref: '#/definitions/Hub'
       summary: hubGet
       tags:
-      - hub
+        - hub
   /productOrder:
     get:
       deprecated: false
-      description: ""
+      description: ''
       operationId: productOrderFind
       parameters:
-      - description: ""
-        in: query
-        name: fields
-        required: false
-        type: string
+        - description: ''
+          in: query
+          name: fields
+          required: false
+          type: string
       responses:
-        "200":
+        '200':
           description: List of ProductOrder
           schema:
             items:
@@ -306,72 +306,72 @@ paths:
             type: array
       summary: productOrderFind
       tags:
-      - productOrder
+        - productOrder
     post:
       deprecated: false
-      description: ""
+      description: ''
       operationId: productOrderInCreate
       parameters:
-      - in: body
-        name: productOrder
-        required: true
-        schema:
-          $ref: '#/definitions/ProductOrderIn'
+        - in: body
+          name: productOrder
+          required: true
+          schema:
+            $ref: '#/definitions/ProductOrderIn'
       responses:
-        "201":
+        '201':
           description: ProductOrderIn
           schema:
             $ref: '#/definitions/ProductOrderIn'
       summary: productOrderInCreate
       tags:
-      - productOrder
-  /productOrder/{productOrderId}:
+        - productOrder
+  '/productOrder/{productOrderId}':
     get:
       deprecated: false
-      description: ""
+      description: ''
       operationId: productOrderGet
       parameters:
-      - in: path
-        name: productOrderId
-        required: true
-        type: string
-      - description: ""
-        in: query
-        name: fields
-        required: false
-        type: string
+        - in: path
+          name: productOrderId
+          required: true
+          type: string
+        - description: ''
+          in: query
+          name: fields
+          required: false
+          type: string
       responses:
-        "200":
+        '200':
           description: ProductOrder
           schema:
             $ref: '#/definitions/ProductOrder'
       summary: productOrderGet
       tags:
-      - productOrder
+        - productOrder
     patch:
       deprecated: false
-      description: ""
+      description: ''
       operationId: productOrderPatch
       parameters:
-      - in: path
-        name: productOrderId
-        required: true
-        type: string
-      - in: body
-        name: productOrder
-        required: true
-        schema:
-          $ref: '#/definitions/ProductOrder'
+        - in: path
+          name: productOrderId
+          required: true
+          type: string
+        - in: body
+          name: productOrder
+          required: true
+          schema:
+            $ref: '#/definitions/ProductOrder'
       responses:
-        "200":
+        '200':
           description: Success ProductOrder
           schema:
             $ref: '#/definitions/ProductOrder'
       summary: productOrderPatch
       tags:
-      - productOrder
+        - productOrder
 produces:
-- application/json
+  - application/json
 schemes:
-- http
-swagger: "2.0"
+  - http
+swagger: '2.0'
