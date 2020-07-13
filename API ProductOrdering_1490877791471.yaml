@@ -1,377 +1,763 @@
 consumes:
   - application/json
 definitions:
-  Hub:
+  parent:
     properties:
-      callback:
-        type: string
-      query:
-        type: string
-    type: object
-  Note:
-    properties:
-      author:
-        type: string
-      date:
-        format: date-time
-        type: string
-      text:
-        type: string
-    type: object
-  OrderItem:
-    properties:
-      action:
-        type: string
-      appointment:
-        type: string
-      billingAccount:
-        items:
-          $ref: '#/definitions/Reference'
-        type: array
       id:
         type: string
-      product:
-        $ref: '#/definitions/Product'
-      productOffering:
-        $ref: '#/definitions/ProductOffering'
-      state:
+    type: object
+  permission:
+    properties:
+      can_download:
+        type: boolean
+      can_preview:
+        type: boolean
+    type: object
+  shared_link:
+    properties:
+      access:
         enum:
-          - Acknowledged
-          - InProgress
-          - Cancelled
-          - Completed
-          - Rejected
-          - Pending
-          - Held
-          - Failed
-          - Partial
+          - open
+          - company
+          - collaborators
         type: string
-    type: object
-  Product:
-    properties:
-      href:
-        type: string
-      id:
-        type: string
-      place:
-        $ref: '#/definitions/Reference'
-      productCharacteristic:
-        items:
-          $ref: '#/definitions/ProductCharacteristic'
-        type: array
-      productRelationship:
-        items:
-          $ref: '#/definitions/ProductRelationship'
-        type: array
-      relatedParty:
-        items:
-          $ref: '#/definitions/Reference'
-        type: array
-    type: object
-  ProductCharacteristic:
-    properties:
-      name:
-        type: string
-      value:
-        type: string
-    type: object
-  ProductOffering:
-    properties:
-      bundledProductOffering:
-        items:
-          $ref: '#/definitions/Reference'
-        type: array
-      href:
-        type: string
-      id:
-        type: string
-    type: object
-  ProductOrder:
-    properties:
-      category:
-        type: string
-      completionDate:
+      permissions:
+        $ref: '#/definitions/permission'
+      unshared_at:
         format: date-time
         type: string
-      description:
+    type: object
+  success:
+    properties:
+      createAt:
+        format: date
         type: string
-      expectedCompletionDate:
-        format: date-time
-        type: string
-      externalId:
-        type: string
-      href:
-        type: string
-      id:
-        format: int64
+      folder_id:
+        format: int32
         type: integer
-      note:
-        items:
-          $ref: '#/definitions/Note'
-        type: array
-      notificationContact:
-        type: string
-      orderDate:
-        format: date-time
-        type: string
-      orderItem:
-        items:
-          $ref: '#/definitions/OrderItem'
-        type: array
-      priority:
-        type: string
-      relatedParty:
-        items:
-          $ref: '#/definitions/Reference'
-        type: array
-      requestedCompletionDate:
-        format: date-time
-        type: string
-      requestedStartDate:
-        format: date-time
-        type: string
-      state:
-        enum:
-          - Acknowledged
-          - InProgress
-          - Cancelled
-          - Completed
-          - Rejected
-          - Pending
-          - Held
-          - Failed
-          - Partial
+      size:
         type: string
     type: object
-  ProductOrderIn:
-    properties:
-      category:
-        type: string
-      completionDate:
-        format: date-time
-        type: string
-      description:
-        type: string
-      expectedCompletionDate:
-        format: date-time
-        type: string
-      externalId:
-        type: string
-      note:
-        items:
-          $ref: '#/definitions/Note'
-        type: array
-      notificationContact:
-        type: string
-      orderDate:
-        format: date-time
-        type: string
-      priority:
-        type: string
-      relatedParty:
-        items:
-          $ref: '#/definitions/Reference'
-        type: array
-      requestedCompletionDate:
-        format: date-time
-        type: string
-      requestedStartDate:
-        format: date-time
-        type: string
-      state:
-        enum:
-          - Acknowledged
-          - InProgress
-          - Cancelled
-          - Completed
-          - Rejected
-          - Pending
-          - Held
-          - Failed
-          - Partial
-        type: string
-    type: object
-  ProductRelationship:
-    properties:
-      product:
-        $ref: '#/definitions/Product'
-      type:
-        enum:
-          - reliesOn
-          - bundled
-          - targets
-          - isTargeted
-        type: string
-    type: object
-  Reference:
-    properties:
-      href:
-        type: string
-      id:
-        type: string
-      name:
-        type: string
-      role:
-        type: string
-    type: object
-host: env-0693795.jelastic.servint.net
+externalDocs:
+  description: Box API Docs
+  url: 'https://box-content.readme.io/#api-docs-directory'
+host: api.tibcocdc.com
 info:
-  description: ''
-  title: API ProductOrdering
-  version: '2.0'
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: 'http://www.swagger.io/support'
+  description: this is a sample swagger definition.
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  termsOfService: 'http://swagger.io/terms/'
+  title: AllElementsSwagger
+  version: 1.0.0
+  x-lastModified: '2020-07-10T07:03:47.000Z'
+parameters:
+  fieldsParam:
+    allowEmptyValue: false
+    default: id
+    description: fields query parameter of all apis
+    in: query
+    name: fields
+    required: false
+    type: string
+  ifMatchParam:
+    description: common header parameter
+    in: header
+    name: If-Match
+    required: false
+    type: string
 paths:
-  /hub:
+  /folders:
     get:
-      deprecated: false
-      description: ''
-      operationId: hubFind
+      consumes:
+        - application/json
+      description: No summary
+      operationId: noTags
+      parameters:
+        - description: common header parameter
+          in: header
+          name: If-Match
+          required: false
+          type: string
+        - allowEmptyValue: false
+          default: id
+          description: fields query parameter of all apis
+          in: query
+          name: fields
+          required: false
+          type: string
+        - description: Whether to delete this folder if it has items inside of it.
+          in: query
+          name: recursive
+          required: false
+          type: boolean
+      produces:
+        - application/json
       responses:
         '200':
-          description: List of Hub
+          description: Unexpected error
+          headers:
+            X-Rate-Limit-Limit:
+              default: 1000
+              description: rate limit
+              exclusiveMaximum: false
+              format: int32
+              maximum: 1000
+              type: number
           schema:
             items:
-              $ref: '#/definitions/Hub'
+              type: string
             type: array
-      summary: hubFind
-      tags:
-        - hub
+        '404':
+          description: file not found.
+          schema:
+            default: file not found.
+            type: string
+      summary: No summary
     post:
-      deprecated: false
-      description: ''
-      operationId: hubCreate
+      consumes:
+        - application/json
+        - application/xml
+        - text/plain
+      description: No summary element
+      externalDocs:
+        description: create a new folder.
+        url: 'https://box-content.readme.io/#create-a-new-folder'
+      operationId: createFolder
       parameters:
-        - in: body
-          name: hub
+        - description: body parameter
+          in: body
+          name: requestBody
           required: true
           schema:
-            $ref: '#/definitions/Hub'
+            default:
+              name: new
+              parent:
+                id: '0'
+            description: body parameter of creating folder
+            example:
+              name: newname.jpg
+              parent:
+                id: '0'
+            externalDocs:
+              description: create a new folder.
+              url: 'https://box-content.readme.io/#create-a-new-folder'
+            properties:
+              name:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+            readOnly: false
+            required:
+              - name
+              - parent
+            title: body of creating folder
+            type: object
+      produces:
+        - application/json
+        - application/xml
+        - text/plain
       responses:
-        '201':
-          description: Hub
+        '200':
+          description: get the folder info successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              default: 1000
+              description: rate limit
+              exclusiveMaximum: false
+              format: int32
+              maximum: 1000
+              type: number
+        '404':
+          description: file not found.
           schema:
-            $ref: '#/definitions/Hub'
-      summary: hubCreate
+            default: file not found.
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            items:
+              type: integer
+            type: array
       tags:
-        - hub
-  '/hub/{hubId}':
+        - Folder
+      summary: No summary element
+  '/folders/{folder_id}':
     delete:
-      deprecated: false
-      description: ''
-      operationId: hubDelete
+      consumes:
+        - application/json
+      description: delete a new folder by id.
+      externalDocs:
+        description: delete a new folder.
+        url: 'https://box-content.readme.io/#delete-a-folder'
+      operationId: deleteFolder
       parameters:
-        - in: path
-          name: hubId
-          required: true
+        - description: common header parameter
+          in: header
+          name: If-Match
+          required: false
           type: string
-      responses:
-        '204':
-          description: Success
-      summary: hubDelete
-      tags:
-        - hub
-    get:
-      deprecated: false
-      description: ''
-      operationId: hubGet
-      parameters:
-        - in: path
-          name: hubId
-          required: true
-          type: string
-      responses:
-        '200':
-          description: Hub
-          schema:
-            $ref: '#/definitions/Hub'
-      summary: hubGet
-      tags:
-        - hub
-  /productOrder:
-    get:
-      deprecated: false
-      description: ''
-      operationId: productOrderFind
-      parameters:
-        - description: ''
+        - allowEmptyValue: false
+          default: id
+          description: fields query parameter of all apis
           in: query
           name: fields
           required: false
           type: string
+        - description: path parameter of folder id
+          in: path
+          name: folder_id
+          required: true
+          type: integer
+        - description: Whether to delete this folder if it has items inside of it.
+          in: query
+          name: recursive
+          required: false
+          type: boolean
+      produces:
+        - application/json
+        - text/plain
       responses:
-        '200':
-          description: List of ProductOrder
+        '404':
+          description: file not found.
+        default:
+          description: Unexpected error
+          examples:
+            application/json: Unexpected error
           schema:
+            type: string
+      summary: delete a folder.
+      tags:
+        - Folder
+    get:
+      consumes:
+        - application/json
+        - application/vnd.github.v3.text+json
+      deprecated: false
+      description: get a folder info by folder id
+      externalDocs:
+        description: get a folder info by folder id
+        url: 'https://box-content.readme.io/#folder-object'
+      operationId: getFolderById
+      parameters:
+        - collectionFormat: csv
+          default: '12345678'
+          description: path parameter of folder id
+          in: path
+          maxLength: 8
+          minLength: 8
+          multipleOf: 1
+          name: folder_id
+          pattern: '\d{8}'
+          required: true
+          type: string
+        - description: header param
+          in: header
+          name: paramHeader
+          required: false
+          type: string
+        - allowEmptyValue: false
+          default: id
+          description: fields query parameter of all apis
+          in: query
+          name: fields
+          required: false
+          type: string
+        - description: integer param
+          format: int32
+          in: query
+          name: paramInteger
+          required: true
+          type: integer
+        - description: long param
+          format: int64
+          in: query
+          name: paramLong
+          required: true
+          type: integer
+        - description: float param
+          format: float
+          in: query
+          name: paramFloat
+          required: true
+          type: number
+        - description: double param
+          format: double
+          in: query
+          name: paramDouble
+          required: true
+          type: number
+        - description: string param
+          in: query
+          name: paramString
+          required: true
+          type: string
+        - description: byte param
+          format: byte
+          in: query
+          name: paramByte
+          required: true
+          type: string
+        - description: boolean param
+          in: query
+          name: paramBoolean
+          required: true
+          type: boolean
+        - description: date param
+          format: date
+          in: query
+          name: paramDate
+          required: true
+          type: string
+        - description: date time param
+          format: date-time
+          in: query
+          name: paramDateTime
+          required: true
+          type: string
+        - description: password param
+          format: password
+          in: query
+          name: paramPassword
+          required: true
+          type: string
+        - collectionFormat: multi
+          description: array param
+          enum:
+            - array1
+            - array2
+            - array3
+          in: query
+          items:
+            type: string
+          name: paramArray
+          required: true
+          type: array
+        - collectionFormat: multi
+          description: array param
+          in: query
+          items:
             items:
-              $ref: '#/definitions/ProductOrder'
+              type: string
             type: array
-      summary: productOrderFind
-      tags:
-        - productOrder
-    post:
-      deprecated: false
-      description: ''
-      operationId: productOrderInCreate
-      parameters:
-        - in: body
-          name: productOrder
+          name: paramArrayInArray
           required: true
-          schema:
-            $ref: '#/definitions/ProductOrderIn'
+          type: array
+      produces:
+        - application/json
+        - application/vnd.github.v3.text+json
       responses:
-        '201':
-          description: ProductOrderIn
+        '100':
+          description: Unexpected info
           schema:
-            $ref: '#/definitions/ProductOrderIn'
-      summary: productOrderInCreate
+            enum:
+              - info1
+              - info2
+              - info3
+            items:
+              type: string
+            type: array
+        '200':
+          description: get the folder info successfully.
+          examples:
+            application/json:
+              create_at: '2015-06-11T22:36:30.000Z'
+              folder_id: 123456
+              size: 10KB
+          headers:
+            X-Rate-Limit-Limit:
+              collectionFormat: csv
+              default: 1000
+              description: rate limit
+              exclusiveMaximum: false
+              format: int32
+              maximum: 1000
+              type: integer
+          schema:
+            properties:
+              create_at:
+                format: date-time
+                type: string
+              folder_id:
+                type: integer
+              size:
+                type: string
+            type: object
+        '300':
+          description: URL redirection
+          schema:
+            $ref: '#/definitions/success'
+        '404':
+          description: file not found.
+          examples:
+            application/json:
+              create_at: '2015-06-11T00:00:00.000Z'
+              folder_id: 123456
+              size: 10KB
+          schema:
+            $ref: '#/definitions/success'
+        '500':
+          description: Server error
+          schema:
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      schemes:
+        - https
+        - http
+      security:
+        - Oauth2:
+            - read
+      summary: get a folder info by folder id
       tags:
-        - productOrder
-  '/productOrder/{productOrderId}':
-    get:
-      deprecated: false
-      description: ''
-      operationId: productOrderGet
+        - Folder
+    put:
+      consumes:
+        - multipart/form-data
+      description: update a folder info by folder id
+      externalDocs:
+        description: update a folder info by folder id
+        url: 'https://box-content.readme.io/#update-information-about-a-folder'
+      operationId: updateFolderById
       parameters:
-        - in: path
-          name: productOrderId
+        - description: path parameter of folder id
+          in: path
+          name: folder_id
           required: true
           type: string
-        - description: ''
+        - description: File you want to upload
+          format: text
+          in: formData
+          name: file/text
+          required: true
+          type: file
+        - description: File you want to upload
+          format: binary
+          in: formData
+          name: file/binary
+          required: false
+          type: file
+      produces:
+        - multipart/form-data
+      responses:
+        '404':
+          description: file not found.
+          headers:
+            X-Rate-Limit-Limit:
+              default: 1000
+              description: rate limit
+              exclusiveMaximum: false
+              format: int32
+              maximum: 1000
+              type: number
+          schema:
+            default: file not found.
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      summary: update a folder info by folder id
+      tags:
+        - Folder
+  /head:
+    get:
+      consumes:
+        - application/json
+      operationId: noTags_2
+      parameters:
+        - description: Whether to delete this folder if it has items inside of it.
+          in: query
+          name: recursive
+          required: false
+          type: boolean
+      responses:
+        '404':
+          description: file not found.
+          schema:
+            default: file not found.
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      summary: No description element
+      tags:
+        - Head
+        - Folder
+    head:
+      consumes:
+        - application/xml
+      description: >-
+        This operation is useful to determine if a bucket exists and you have
+        permission to access it.
+      externalDocs:
+        description: >-
+          This operation is useful to determine if a bucket exists and you have
+          permission to access it.
+        url: 'http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html'
+      operationId: headBucketCheck
+      parameters: []
+      produces:
+        - application/xml
+      responses:
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      security:
+        - apikey: []
+      summary: >-
+        This operation is useful to determine if a bucket exists and you have
+        permission to access it.
+      tags:
+        - Head
+  /options:
+    get:
+      consumes:
+        - application/json
+      description: ''
+      operationId: noTags_1
+      parameters: []
+      produces:
+        - application/json
+      responses:
+        '404':
+          description: file not found.
+          schema:
+            default: file not found.
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      summary: No description
+    options:
+      consumes:
+        - multipart/form-data
+      description: >-
+        To get real-time notification of activity in a Box account, use the long
+        poll feature of the /events API. 
+      externalDocs:
+        description: >-
+          To get real-time notification of activity in a Box account, use the
+          long poll feature of the /events API. 
+        url: 'https://box-content.readme.io/#long-polling'
+      operationId: longPolling
+      parameters:
+        - description: File you want to upload
+          format: binary
+          in: formData
+          name: file
+          required: true
+          type: file
+      produces:
+        - multipart/form-data
+      responses:
+        '404':
+          description: '404'
+          schema:
+            type: integer
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      security:
+        - basic: []
+      summary: >-
+        To get real-time notification of activity in a Box account, use the long
+        poll feature of the /events API.
+      tags:
+        - Options
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - default: test
+          description: form parameter
+          format: ''
+          in: formData
+          name: f1
+          required: false
+          type: string
+      produces:
+        - application/json
+      responses:
+        default:
+          description: default response
+      operationId: postOptions
+    put:
+      consumes:
+        - multipart/form-data
+      parameters:
+        - default: 123
+          description: form parameter
+          format: int32
+          in: formData
+          name: f1
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        default:
+          description: default response
+      operationId: putOptions
+  '/patch/{calendarId}':
+    patch:
+      consumes:
+        - application/xml
+      description: Updates an entry on the user's calendar list.
+      externalDocs:
+        description: Updates an entry on the user's calendar list.
+        url: >-
+          https://developers.google.com/google-apps/calendar/v3/reference/calendarList/patch
+      operationId: patchCalendarList
+      parameters:
+        - description: calendarId parameter
+          in: path
+          name: calendarId
+          required: true
+          type: string
+        - description: >-
+            Whether to use the foregroundColor and backgroundColor fields to
+            write the calendar colors (RGB). If this feature is used, the
+            index-based colorId field will be set to the best matching option
+            automatically. Optional. The default is False.
+          in: query
+          name: colorRgbFormat
+          required: false
+          type: boolean
+        - allowEmptyValue: false
+          default: id
+          description: fields query parameter of all apis
           in: query
           name: fields
           required: false
           type: string
+        - description: body parameter
+          in: body
+          name: requestBody
+          required: false
+          schema:
+            properties:
+              backgroundColor:
+                type: string
+              colorId:
+                type: string
+              selected:
+                type: boolean
+            type: object
+      produces:
+        - application/json
       responses:
         '200':
-          description: ProductOrder
+          description: get the folder info successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              default: 10
+              description: rate limit
+              exclusiveMaximum: true
+              format: float
+              maximum: 100
+              type: number
           schema:
-            $ref: '#/definitions/ProductOrder'
-      summary: productOrderGet
+            $ref: '#/definitions/success'
+        '404':
+          description: file not found.
+          schema:
+            default: file not found.
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            default: Unexpected error
+            type: string
+      summary: Updates an entry on the user's calendar list.
       tags:
-        - productOrder
-    patch:
-      deprecated: false
-      description: ''
-      operationId: productOrderPatch
-      parameters:
-        - in: path
-          name: productOrderId
-          required: true
-          type: string
-        - in: body
-          name: productOrder
-          required: true
-          schema:
-            $ref: '#/definitions/ProductOrder'
-      responses:
-        '200':
-          description: Success ProductOrder
-          schema:
-            $ref: '#/definitions/ProductOrder'
-      summary: productOrderPatch
-      tags:
-        - productOrder
+        - Patch
 produces:
   - application/json
+responses:
+  '100':
+    description: Unexpected info
+    schema:
+      enum:
+        - info1
+        - info2
+        - info3
+      items:
+        type: string
+      type: array
+  '200':
+    description: get the folder info successfully.
+    headers:
+      X-Rate-Limit-Limit:
+        default: 1000
+        description: rate limit
+        exclusiveMaximum: false
+        format: int32
+        maximum: 1000
+        type: number
+  '300':
+    description: URL redirection
+    schema:
+      type: string
+  '404':
+    description: file not found.
+    schema:
+      default: file not found.
+      type: string
+  '500':
+    description: Server error
+    schema:
+      type: string
+  default:
+    description: Unexpected error
+    schema:
+      default: Unexpected error
+      type: string
 schemes:
-  - http
+  - https
+security:
+  - Oauth2:
+      - write
+      - read
+  - apikey: []
+securityDefinitions:
+  Oauth2:
+    authorizationUrl: 'https://app.box.com/api/oauth2/authorize'
+    description: oauth2 authentication
+    flow: accessCode
+    scopes:
+      read: read permission
+      write: write permission
+    tokenUrl: 'https://api.box.com/oauth2/token'
+    type: oauth2
+  apikey:
+    description: api key suthentication
+    in: query
+    name: apikey
+    type: apiKey
+  basic:
+    description: http basci authentication
+    type: basic
 swagger: '2.0'
+tags:
+  - description: Folder operations
+    externalDocs:
+      description: Folder operations
+      url: 'https://box-content.readme.io/#folder-object-1'
+    name: Folder
