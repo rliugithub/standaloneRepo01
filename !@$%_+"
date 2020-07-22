@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  version: '1'
+  title: '!@#$%_+"??>""<<m'
+  x-lastModified: '2020-07-21T11:31:29.000Z'
+paths:
+  /sa:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: getSa
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: postSa
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: putSa
