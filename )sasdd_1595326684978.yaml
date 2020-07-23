@@ -1,1053 +1,381 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AllElementsSwagger",
-    "description": "this is a sample swagger definition.",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "name": "API Support",
-      "url": "http://www.swagger.io/support",
-      "email": "support@swagger.io"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "version": "1.0.0"
+    "title": "Uber API",
+    "description": "Move your app forward with the Uber API",
+    "version": "2.0.0",
+    "x-lastModified": "2020-07-23T04:32:05.000Z"
   },
-  "host": "api.tibcocdc.com",
+  "host": "api.uber.com",
   "schemes": [
     "https"
-  ],
-  "consumes": [
-    "application/json"
   ],
   "produces": [
     "application/json"
   ],
   "paths": {
-    "/folders/{folder_id}": {
+    "/products": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
-        "summary": "get a folder info by folder id",
-        "description": "get a folder info by folder id",
-        "externalDocs": {
-          "description": "get a folder info by folder id",
-          "url": "https://box-content.readme.io/#folder-object"
-        },
-        "operationId": "getFolderById",
-        "consumes": [
-          "application/json",
-          "application/vnd.github.v3.text+json"
-        ],
-        "produces": [
-          "application/json",
-          "application/vnd.github.v3.text+json"
-        ],
+        "summary": "Product Types",
+        "description": "The Products endpoint returns information about the *Uber* products\noffered at a given location. The response includes the display name\nand other details about each product, and lists the products in the\nproper display order.\n",
         "parameters": [
           {
-            "name": "folder_id",
-            "in": "path",
-            "description": "path parameter of folder id",
-            "required": true,
-            "type": "string",
-            "collectionFormat": "csv",
-            "default": "12345678",
-            "maxLength": 8,
-            "minLength": 8,
-            "pattern": "\\d{8}",
-            "multipleOf": 1
-          },
-          {
-            "name": "paramHeader",
-            "in": "header",
-            "description": "header param",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "fields",
+            "name": "latitude",
             "in": "query",
-            "description": "fields query parameter of all apis",
-            "required": false,
-            "type": "string",
-            "default": "id",
-            "allowEmptyValue": false
-          },
-          {
-            "name": "paramInteger",
-            "in": "query",
-            "description": "integer param",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "paramLong",
-            "in": "query",
-            "description": "long param",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "paramFloat",
-            "in": "query",
-            "description": "float param",
-            "required": true,
-            "type": "number",
-            "format": "float"
-          },
-          {
-            "name": "paramDouble",
-            "in": "query",
-            "description": "double param",
+            "description": "Latitude component of location.",
             "required": true,
             "type": "number",
             "format": "double"
           },
           {
-            "name": "paramString",
+            "name": "longitude",
             "in": "query",
-            "description": "string param",
+            "description": "Longitude component of location.",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "paramByte",
-            "in": "query",
-            "description": "byte param",
-            "required": true,
-            "type": "string",
-            "format": "byte"
-          },
-          {
-            "name": "paramBoolean",
-            "in": "query",
-            "description": "boolean param",
-            "required": true,
-            "type": "boolean"
-          },
-          {
-            "name": "paramDate",
-            "in": "query",
-            "description": "date param",
-            "required": true,
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "name": "paramDateTime",
-            "in": "query",
-            "description": "date time param",
-            "required": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          {
-            "name": "paramPassword",
-            "in": "query",
-            "description": "password param",
-            "required": true,
-            "type": "string",
-            "format": "password"
-          },
-          {
-            "name": "paramArray",
-            "in": "query",
-            "description": "array param",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "enum": [
-              "array1",
-              "array2",
-              "array3"
-            ],
-            "collectionFormat": "multi"
-          },
-          {
-            "name": "paramArrayInArray",
-            "in": "query",
-            "description": "array param",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "collectionFormat": "multi"
+            "type": "number",
+            "format": "double"
           }
         ],
+        "tags": [
+          "Products"
+        ],
         "responses": {
-          "100": {
-            "description": "Unexpected info",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "enum": [
-                "info1",
-                "info2",
-                "info3"
-              ]
-            }
-          },
           "200": {
-            "description": "get the folder info successfully.",
-            "headers": {
-              "X-Rate-Limit-Limit": {
-                "description": "rate limit",
-                "type": "integer",
-                "format": "int32",
-                "default": 1000,
-                "maximum": 1000,
-                "exclusiveMaximum": false,
-                "collectionFormat": "csv"
-              }
-            },
+            "description": "An array of products",
             "schema": {
-              "type": "object",
-              "properties": {
-                "folder_id": {
-                  "type": "integer"
-                },
-                "create_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "size": {
-                  "type": "string"
-                }
-              }
-            },
-            "examples": {
-              "application/json": {
-                "folder_id": 123456,
-                "create_at": "2015-06-11T14:36:30-08:00",
-                "size": "10KB"
-              }
-            }
-          },
-          "300": {
-            "description": "URL redirection",
-            "schema": {
-              "$ref": "#/definitions/success"
-            }
-          },
-          "404": {
-            "description": "file not found.",
-            "schema": {
-              "$ref": "#/definitions/success"
-            },
-            "examples": {
-              "application/json": {
-                "folder_id": 123456,
-                "create_at": "2015-06-11",
-                "size": "10KB"
-              }
-            }
-          },
-          "500": {
-            "description": "Server error",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "string",
-              "default": "Unexpected error"
-            }
-          }
-        },
-        "schemes": [
-          "https",
-          "http"
-        ],
-        "deprecated": false,
-        "security": [
-          {
-            "Oauth2": [
-              "read"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "Folder"
-        ],
-        "summary": "update a folder info by folder id",
-        "description": "update a folder info by folder id",
-        "externalDocs": {
-          "description": "update a folder info by folder id",
-          "url": "https://box-content.readme.io/#update-information-about-a-folder"
-        },
-        "operationId": "updateFolderById",
-        "consumes": [
-          "multipart/form-data"
-        ],
-        "produces": [
-          "multipart/form-data"
-        ],
-        "parameters": [
-          {
-            "name": "folder_id",
-            "in": "path",
-            "description": "path parameter of folder id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "file/text",
-            "in": "formData",
-            "description": "File you want to upload",
-            "type": "file",
-            "format": "text",
-            "required": true
-          },
-          {
-            "name": "file/binary",
-            "in": "formData",
-            "description": "File you want to upload",
-            "type": "file",
-            "format": "binary",
-            "required": false
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "file not found.",
-            "schema": {
-              "type": "string",
-              "default": "file not found."
-            },
-            "headers": {
-              "X-Rate-Limit-Limit": {
-                "description": "rate limit",
-                "type": "number",
-                "format": "int32",
-                "default": 1000,
-                "maximum": 1000,
-                "exclusiveMaximum": false
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
               }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "type": "string",
-              "default": "Unexpected error"
+              "$ref": "#/definitions/Error"
             }
           }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Folder"
-        ],
-        "summary": "delete a folder.",
-        "description": "delete a new folder by id.",
-        "externalDocs": {
-          "description": "delete a new folder.",
-          "url": "https://box-content.readme.io/#delete-a-folder"
         },
-        "operationId": "deleteFolder",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/plain"
-        ],
-        "parameters": [
-          {
-            "name": "If-Match",
-            "in": "header",
-            "description": "common header parameter",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "fields query parameter of all apis",
-            "required": false,
-            "type": "string",
-            "default": "id",
-            "allowEmptyValue": false
-          },
-          {
-            "name": "folder_id",
-            "in": "path",
-            "description": "path parameter of folder id",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "name": "recursive",
-            "in": "query",
-            "description": "Whether to delete this folder if it has items inside of it.",
-            "type": "boolean",
-            "required": false
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "file not found."
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "application/json": "Unexpected error"
-            }
-          }
-        }
+        "operationId": "getProducts"
       }
     },
-    "/folders": {
-      "post": {
-        "tags": [
-          "Folder"
-        ],
-        "description": "No summary element",
-        "externalDocs": {
-          "description": "create a new folder.",
-          "url": "https://box-content.readme.io/#create-a-new-folder"
-        },
-        "operationId": "createFolder",
-        "consumes": [
-          "application/json",
-          "application/xml",
-          "text/plain"
-        ],
-        "produces": [
-          "application/json",
-          "application/xml",
-          "text/plain"
-        ],
+    "/estimates/price": {
+      "get": {
+        "summary": "Price Estimates",
+        "description": "The Price Estimates endpoint returns an estimated price range\nfor each product offered at a given location. The price estimate is\nprovided as a formatted string with the full price range and the localized\ncurrency symbol.<br><br>The response also includes low and high estimates,\nand the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for\nsituations requiring currency conversion. When surge is active for a particular\nproduct, its surge_multiplier will be greater than 1, but the price estimate\nalready factors in this multiplier.\n",
         "parameters": [
           {
-            "name": "requestBody",
-            "in": "body",
-            "description": "body parameter",
+            "name": "start_latitude",
+            "in": "query",
+            "description": "Latitude component of start location.",
             "required": true,
-            "schema": {
-              "type": "object",
-              "title": "body of creating folder",
-              "description": "body parameter of creating folder",
-              "default": {
-                "name": "new",
-                "parent": {
-                  "id": "0"
-                }
-              },
-              "required": [
-                "name",
-                "parent"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "parent": {
-                  "$ref": "#/definitions/parent"
-                }
-              },
-              "readOnly": false,
-              "externalDocs": {
-                "description": "create a new folder.",
-                "url": "https://box-content.readme.io/#create-a-new-folder"
-              },
-              "example": {
-                "name": "newname.jpg",
-                "parent": {
-                  "id": "0"
-                }
-              }
-            }
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "start_longitude",
+            "in": "query",
+            "description": "Longitude component of start location.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "end_latitude",
+            "in": "query",
+            "description": "Latitude component of end location.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "end_longitude",
+            "in": "query",
+            "description": "Longitude component of end location.",
+            "required": true,
+            "type": "number",
+            "format": "double"
           }
+        ],
+        "tags": [
+          "Estimates"
         ],
         "responses": {
           "200": {
-            "description": "get the folder info successfully.",
-            "headers": {
-              "X-Rate-Limit-Limit": {
-                "description": "rate limit",
-                "type": "number",
-                "format": "int32",
-                "default": 1000,
-                "maximum": 1000,
-                "exclusiveMaximum": false
-              }
-            }
-          },
-          "404": {
-            "description": "file not found.",
+            "description": "An array of price estimates by product",
             "schema": {
-              "type": "string",
-              "default": "file not found."
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PriceEstimate"
+              }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
+              "$ref": "#/definitions/Error"
             }
           }
-        }
-      },
-      "get": {
-        "summary": "",
-        "description": "No summary",
-        "operationId": "noTags",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "If-Match",
-            "in": "header",
-            "description": "common header parameter",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "fields query parameter of all apis",
-            "required": false,
-            "type": "string",
-            "default": "id",
-            "allowEmptyValue": false
-          },
-          {
-            "name": "recursive",
-            "in": "query",
-            "description": "Whether to delete this folder if it has items inside of it.",
-            "type": "boolean",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "headers": {
-              "X-Rate-Limit-Limit": {
-                "description": "rate limit",
-                "type": "number",
-                "format": "int32",
-                "default": 1000,
-                "maximum": 1000,
-                "exclusiveMaximum": false
-              }
-            }
-          },
-          "404": {
-            "description": "file not found.",
-            "schema": {
-              "type": "string",
-              "default": "file not found."
-            }
-          }
-        }
+        },
+        "operationId": "getEstimatesPrice"
       }
     },
-    "/options": {
-      "options": {
-        "tags": [
-          "Options"
-        ],
-        "summary": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API.",
-        "description": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API. ",
-        "externalDocs": {
-          "description": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API. ",
-          "url": "https://box-content.readme.io/#long-polling"
-        },
-        "operationId": "longPolling",
-        "consumes": [
-          "multipart/form-data"
-        ],
-        "produces": [
-          "multipart/form-data"
-        ],
-        "parameters": [
-          {
-            "name": "file",
-            "in": "formData",
-            "description": "File you want to upload",
-            "type": "file",
-            "format": "binary",
-            "required": true
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "404",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "string",
-              "default": "Unexpected error"
-            }
-          }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
-      },
+    "/estimates/time": {
       "get": {
-        "summary": "No description",
-        "description": "",
-        "operationId": "noTags_1",
-        "consumes": [
-          "application/json"
+        "summary": "Time Estimates",
+        "description": "The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.",
+        "parameters": [
+          {
+            "name": "start_latitude",
+            "in": "query",
+            "description": "Latitude component of start location.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "start_longitude",
+            "in": "query",
+            "description": "Longitude component of start location.",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "customer_uuid",
+            "in": "query",
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique customer identifier to be used for experience customization."
+          },
+          {
+            "name": "product_id",
+            "in": "query",
+            "type": "string",
+            "description": "Unique identifier representing a specific product for a given latitude & longitude."
+          }
         ],
-        "produces": [
-          "application/json"
+        "tags": [
+          "Estimates"
         ],
-        "parameters": [],
         "responses": {
-          "404": {
-            "description": "file not found.",
+          "200": {
+            "description": "An array of products",
             "schema": {
-              "type": "string",
-              "default": "file not found."
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "type": "string",
-              "default": "Unexpected error"
+              "$ref": "#/definitions/Error"
             }
           }
-        }
-      },
-      "post": {
-        "produces": [
-          "application/json"
+        },
+        "operationId": "getEstimatesTime"
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "User Profile",
+        "description": "The User Profile endpoint returns information about the Uber user that has authorized with the application.",
+        "tags": [
+          "User"
         ],
         "responses": {
+          "200": {
+            "description": "Profile information for a user",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          },
           "default": {
-            "description": "default response"
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
           }
         },
+        "operationId": "getMe"
+      }
+    },
+    "/history": {
+      "get": {
+        "summary": "User Activity",
+        "description": "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.<br><br>The history array in the response will have a maximum length based on the limit parameter. The response value count may exceed limit, therefore subsequent API requests may be necessary.",
         "parameters": [
           {
-            "name": "f1",
-            "in": "formData",
-            "description": "form parameter",
-            "type": "string",
-            "required": false,
-            "format": "",
-            "default": "test"
-          }
-        ],
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ]
-      },
-      "put": {
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "default": {
-            "description": "default response"
-          }
-        },
-        "parameters": [
-          {
-            "name": "f1",
-            "in": "formData",
-            "description": "form parameter",
+            "name": "offset",
+            "in": "query",
             "type": "integer",
-            "required": true,
             "format": "int32",
-            "default": 123
-          }
-        ],
-        "consumes": [
-          "multipart/form-data"
-        ]
-      }
-    },
-    "/head": {
-      "head": {
-        "tags": [
-          "Head"
-        ],
-        "summary": "This operation is useful to determine if a bucket exists and you have permission to access it.",
-        "description": "This operation is useful to determine if a bucket exists and you have permission to access it.",
-        "externalDocs": {
-          "description": "This operation is useful to determine if a bucket exists and you have permission to access it.",
-          "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html"
-        },
-        "operationId": "headBucketCheck",
-        "consumes": [
-          "application/xml"
-        ],
-        "produces": [
-          "application/xml"
-        ],
-        "parameters": [],
-        "responses": {
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "string",
-              "default": "Unexpected error"
-            }
-          }
-        },
-        "security": [
+            "description": "Offset the list of returned results by this amount. Default is zero."
+          },
           {
-            "apikey": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "No description element",
-        "operationId": "noTags_2",
-        "tags": [
-          "Head",
-          "Folder"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "recursive",
+            "name": "limit",
             "in": "query",
-            "description": "Whether to delete this folder if it has items inside of it.",
-            "type": "boolean",
-            "required": false
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of items to retrieve. Default is 5, maximum is 100."
           }
         ],
-        "responses": {
-          "404": {
-            "description": "file not found.",
-            "schema": {
-              "type": "string",
-              "default": "file not found."
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "schema": {
-              "type": "string",
-              "default": "Unexpected error"
-            }
-          }
-        }
-      }
-    },
-    "/patch/{calendarId}": {
-      "patch": {
         "tags": [
-          "Patch"
-        ],
-        "summary": "Updates an entry on the user's calendar list.",
-        "description": "Updates an entry on the user's calendar list.",
-        "externalDocs": {
-          "description": "Updates an entry on the user's calendar list.",
-          "url": "https://developers.google.com/google-apps/calendar/v3/reference/calendarList/patch"
-        },
-        "operationId": "patchCalendarList",
-        "consumes": [
-          "application/xml"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "calendarId",
-            "in": "path",
-            "description": "calendarId parameter",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "colorRgbFormat",
-            "in": "query",
-            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-            "type": "boolean",
-            "required": false
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "fields query parameter of all apis",
-            "required": false,
-            "type": "string",
-            "default": "id",
-            "allowEmptyValue": false
-          },
-          {
-            "name": "requestBody",
-            "in": "body",
-            "description": "body parameter",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "colorId": {
-                  "type": "string"
-                },
-                "backgroundColor": {
-                  "type": "string"
-                },
-                "selected": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
+          "User"
         ],
         "responses": {
           "200": {
-            "description": "get the folder info successfully.",
-            "headers": {
-              "X-Rate-Limit-Limit": {
-                "description": "rate limit",
-                "type": "number",
-                "format": "float",
-                "default": 10,
-                "maximum": 100,
-                "exclusiveMaximum": true
-              }
-            },
+            "description": "History information for the given user",
             "schema": {
-              "$ref": "#/definitions/success"
-            }
-          },
-          "404": {
-            "description": "file not found.",
-            "schema": {
-              "type": "string",
-              "default": "file not found."
+              "$ref": "#/definitions/Activities"
             }
           },
           "default": {
             "description": "Unexpected error",
             "schema": {
-              "type": "string",
-              "default": "Unexpected error"
+              "$ref": "#/definitions/Error"
             }
           }
-        }
+        },
+        "operationId": "getHistory"
       }
     }
   },
   "definitions": {
-    "parent": {
+    "Product": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
-    },
-    "shared_link": {
-      "type": "object",
-      "properties": {
-        "access": {
+        "product_id": {
           "type": "string",
-          "enum": [
-            "open",
-            "company",
-            "collaborators"
-          ]
+          "description": "Unique identifier representing a specific product for a given latitude & longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles."
         },
-        "unshared_at": {
+        "description": {
           "type": "string",
-          "format": "date-time"
+          "description": "Description of product."
         },
-        "permissions": {
-          "$ref": "#/definitions/permission"
+        "display_name": {
+          "type": "string",
+          "description": "Display name of product."
+        },
+        "capacity": {
+          "type": "string",
+          "description": "Capacity of product. For example, 4 people."
+        },
+        "image": {
+          "type": "string",
+          "description": "Image URL representing the product."
         }
       }
     },
-    "permission": {
+    "PriceEstimate": {
       "type": "object",
       "properties": {
-        "can_download": {
-          "type": "boolean"
+        "product_id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific product for a given latitude & longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles"
         },
-        "can_preview": {
-          "type": "boolean"
+        "currency_code": {
+          "type": "string",
+          "description": "[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code."
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Display name of product."
+        },
+        "estimate": {
+          "type": "string",
+          "description": "Formatted string of estimate in local currency of the start location. Estimate could be a range, a single number (flat rate) or \"Metered\" for TAXI."
+        },
+        "low_estimate": {
+          "type": "number",
+          "description": "Lower bound of the estimated price."
+        },
+        "high_estimate": {
+          "type": "number",
+          "description": "Upper bound of the estimated price."
+        },
+        "surge_multiplier": {
+          "type": "number",
+          "description": "Expected surge multiplier. Surge is active if surge_multiplier is greater than 1. Price estimate already factors in the surge multiplier."
         }
       }
     },
-    "success": {
+    "Profile": {
       "type": "object",
       "properties": {
-        "folder_id": {
+        "first_name": {
+          "type": "string",
+          "description": "First name of the Uber user."
+        },
+        "last_name": {
+          "type": "string",
+          "description": "Last name of the Uber user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the Uber user"
+        },
+        "picture": {
+          "type": "string",
+          "description": "Image URL of the Uber user."
+        },
+        "promo_code": {
+          "type": "string",
+          "description": "Promo code of the Uber user."
+        }
+      }
+    },
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Unique identifier for the activity"
+        }
+      }
+    },
+    "Activities": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Position in pagination."
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of items to retrieve (100 max)."
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of items available."
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activity"
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
           "type": "integer",
           "format": "int32"
         },
-        "createAt": {
-          "type": "string",
-          "format": "date"
+        "message": {
+          "type": "string"
         },
-        "size": {
+        "fields": {
           "type": "string"
         }
       }
     }
-  },
-  "parameters": {
-    "fieldsParam": {
-      "name": "fields",
-      "in": "query",
-      "description": "fields query parameter of all apis",
-      "required": false,
-      "type": "string",
-      "default": "id",
-      "allowEmptyValue": false
-    },
-    "ifMatchParam": {
-      "name": "If-Match",
-      "in": "header",
-      "description": "common header parameter",
-      "required": false,
-      "type": "string"
-    }
-  },
-  "responses": {
-    "100": {
-      "description": "Unexpected info",
-      "schema": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "enum": [
-          "info1",
-          "info2",
-          "info3"
-        ]
-      }
-    },
-    "200": {
-      "description": "get the folder info successfully.",
-      "headers": {
-        "X-Rate-Limit-Limit": {
-          "description": "rate limit",
-          "type": "number",
-          "format": "int32",
-          "default": 1000,
-          "maximum": 1000,
-          "exclusiveMaximum": false
-        }
-      }
-    },
-    "300": {
-      "description": "URL redirection",
-      "schema": {
-        "type": "string"
-      }
-    },
-    "404": {
-      "description": "file not found.",
-      "schema": {
-        "type": "string",
-        "default": "file not found."
-      }
-    },
-    "500": {
-      "description": "Server error",
-      "schema": {
-        "type": "string"
-      }
-    },
-    "default": {
-      "description": "Unexpected error",
-      "schema": {
-        "type": "string",
-        "default": "Unexpected error"
-      }
-    }
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "type": "oauth2",
-      "description": "oauth2 authentication",
-      "flow": "accessCode",
-      "authorizationUrl": "https://app.box.com/api/oauth2/authorize",
-      "tokenUrl": "https://api.box.com/oauth2/token",
-      "scopes": {
-        "write": "write permission",
-        "read": "read permission"
-      }
-    },
-    "apikey": {
-      "type": "apiKey",
-      "description": "api key suthentication",
-      "name": "apikey",
-      "in": "query"
-    },
-    "basic": {
-      "type": "basic",
-      "description": "http basci authentication"
-    }
-  },
-  "security": [
-    {
-      "Oauth2": [
-        "write",
-        "read"
-      ]
-    },
-    {
-      "apikey": []
-    }
-  ],
-  "tags": [
-    {
-      "name": "Folder",
-      "description": "Folder operations",
-      "externalDocs": {
-        "description": "Folder operations",
-        "url": "https://box-content.readme.io/#folder-object-1"
-      }
-    }
-  ],
-  "externalDocs": {
-    "description": "Box API Docs",
-    "url": "https://box-content.readme.io/#api-docs-directory"
   }
 }
