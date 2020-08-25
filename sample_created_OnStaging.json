@@ -1,0 +1,139 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "23.45",
+    "title": "sample_created",
+    "x-lastModified": "25 August 2020 10:53:49 am (India Standard Time)",
+    "description": "Api description added"
+  },
+  "paths": {
+    "/path": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          },
+          "201": {
+            "description": "sample of the status code"
+          }
+        },
+        "parameters": [
+          {
+            "name": "param1",
+            "in": "header",
+            "description": "parameter added",
+            "required": false,
+            "type": "string",
+            "format": ""
+          },
+          {
+            "name": "assd",
+            "in": "header",
+            "description": "scxsa",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          }
+        ],
+        "operationId": "getPath",
+        "tags": [
+          "aasif",
+          "tag1"
+        ],
+        "summary": "added summery",
+        "description": "discription added"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "body parameter adding",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            }
+          }
+        ],
+        "operationId": "postPath",
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "putPath"
+      },
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "patchPath"
+      }
+    },
+    "/path1": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "getPath1"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "postPath1"
+      }
+    }
+  },
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "name": "sample json schema"
+    }
+  }
+}
