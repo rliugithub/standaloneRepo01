@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: 1.2.3
+  title: Api
+  x-lastModified: '05 November 2020 12:52:06 pm (India Standard Time)'
+paths:
+  /path:
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+        '300':
+          description: information
+          schema:
+            $ref: '#/definitions/sampleschema'
+        '404':
+          description: not found
+          schema:
+            type: string
+        '500':
+          description: server error
+      parameters:
+        - name: querty
+          in: query
+          description: simple query added
+          required: false
+          type: integer
+          format: int32
+          default: 1
+        - name: sdsa
+          in: header
+          description: ''
+          required: false
+          type: string
+          format: ''
+        - name: a
+          in: formData
+          description: ''
+          required: false
+          type: string
+          format: ''
+      operationId: postPath
+      consumes:
+        - application/json
+        - multipart/form-data
+      summary: summery added
+      description: Description added
+      tags:
+        - tag2
+        - tag1
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: putPath
+    patch:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: getPath
+    delete:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: deletePath
+definitions:
+  sampleschema:
+    name: aasif
