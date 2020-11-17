@@ -2,7 +2,35 @@
   "swagger": "2.0",
   "info": {
     "version": "1",
-    "title": "\"asss \"  \"   /./["
+    "title": "creted",
+    "x-lastModified": "17 November 2020 4:26:39 pm (India Standard Time)"
   },
-  "paths": {}
+  "paths": {
+    "/create": {
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "putCreate"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [],
+        "operationId": "postCreate"
+      }
+    }
+  }
 }
