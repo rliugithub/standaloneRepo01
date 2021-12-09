@@ -1,0 +1,123 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: asf_automobile_updateafterUP
+  x-lastModified: '2021-02-08T12:05:56.000Z'
+  description: update mock from mock details page after upgrade.
+paths:
+  /bike:
+    get:
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '201':
+          description: Success response
+          schema:
+            $ref: '#/definitions/GiveNewSchemaNameHere'
+          examples:
+            application/json:
+              name: karizma
+              cc: '223'
+              weight: '150'
+        '400':
+          description: not found
+          schema:
+            type: array
+            items:
+              type: string
+      parameters:
+        - name: name
+          in: query
+          description: ''
+          required: true
+          type: string
+          format: ''
+      operationId: getBike
+      tags: []
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: added successfully
+      parameters:
+        - name: body
+          in: body
+          description: ''
+          schema:
+            $ref: '#/definitions/gfrgfgfgfgf'
+      operationId: postBike
+      consumes:
+        - application/json
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: bike added
+      parameters:
+        - name: body
+          in: body
+          description: description of the bike
+          schema:
+            $ref: '#/definitions/GiveNewSchemaNameHere'
+      operationId: putBike
+      consumes:
+        - application/json
+    patch:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters:
+        - name: body
+          in: body
+          description: ''
+          schema:
+            $ref: '#/definitions/dfsdfsd'
+      operationId: patchBike
+      consumes:
+        - application/json
+definitions:
+  bike:
+    name: karizma
+    cc: '223'
+    weight: 150kg
+  GiveNewSchemaNameHere:
+    type: object
+    properties:
+      name:
+        type: string
+        default: Karizma
+      cc:
+        type: string
+        default: '150'
+      weight:
+        type: string
+        default: '130'
+  gfrgfgfgfgf:
+    type: object
+    properties:
+      name:
+        type: string
+        default: discovery
+      cc:
+        type: string
+        default: '150'
+      weight:
+        type: string
+        default: '130'
+  dfsdfsd:
+    type: object
+    properties:
+      name:
+        type: string
+        default: discoveryyyyt
+      cc:
+        type: string
+        default: '150'
+      weight:
+        type: string
+        default: '130'
