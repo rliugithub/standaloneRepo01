@@ -1,0 +1,35 @@
+swagger: '2.0'
+info:
+  version: 1.2.3
+  title: created
+  x-lastModified: '27 July 2022 3:27:26 pm (India Standard Time)'
+paths:
+  /asd:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+        '300':
+          description: qASA
+      parameters: []
+      operationId: getAsd
+      tags:
+        - asa
+    post:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: postAsd
+    put:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success response
+      parameters: []
+      operationId: putAsd
